@@ -19,11 +19,10 @@ public class MathUtil {
         if (n < 0 || n > 15) {
             throw new IllegalArgumentException("Invalid Input. n must be >=0");
         }
-        long result = 1;
-        for (int i = 1; i <= n; i++) {
-            result *= i;
+        if (n == 0 || n == 1) {
+            return 1; // dk dừng
         }
-
-        return result;
+        //sống sót đến dòng lệnh này thì n chắc chắn rơi vào 2...15 => ko cần xài else
+        return n * computeFactory(n - 1); // n! = n * (n-1)!
     }
 }
